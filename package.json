@@ -9,9 +9,9 @@
     "build": "yarn bootstrap && lerna run build --parallel",
     "bootstrap": "lerna bootstrap",
     "clean": "rm -rf lib/ packages/**/lib/** && lerna clean",
-    "publish": "yarn tsc && lerna publish",
+    "publish": "yarn build && lerna publish",
     "lint:fix": "lerna run lint --parallel -- --fix",
-    "version": "yarn tsc && lerna version",
+    "version": "yarn build && lerna version",
     "commit": "npx git-cz",
     "release": "yarn publish"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@carbmee/non-nestjs-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "> TODO: description",
   "author": "khaledosman <khaled.osmaan@gmail.com>",
   "homepage": "https://github.com/khaledosman/lerna-ts-yarnworkspaces-monorepo#readme",
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/khaledosman/lerna-ts-yarnworkspaces-monorepo.git"
   },
   "scripts": {
-    "tsc": "tsc",
+    "build": "tsc",
     "watch": "tsc --watch",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
