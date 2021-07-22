@@ -5,19 +5,19 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "nodemon",
     "watch": "yarn bootstrap && lerna run watch --parallel",
-    "build": "yarn bootstrap && yarn tsc",
-    "tsc": "lerna run tsc --parallel",
+    "build": "yarn bootstrap && lerna run build --parallel",
     "bootstrap": "lerna bootstrap",
     "clean": "rm -rf lib/ packages/**/lib/** && lerna clean",
     "publish": "yarn tsc && lerna publish",
+    "lint:fix": "lerna run lint -- --fix",
+    "version": "yarn tsc && lerna version",
     "commit": "npx git-cz",
     "release": "yarn publish"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx standardx packages/**/*.ts src/**/*.ts --fix",
+      "pre-commit": "yarn lint:fix",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

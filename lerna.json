@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "nest-project"
   ],
   "npmClient": "npm",
   "useWorkspaces": true,
@@ -11,9 +12,14 @@
       "message": "chore(release): publish",
       "ignoreChanges": [
         "**/__tests__/**",
+        "**/test/**",
         "**/*.md",
-	      "**/*/package.json"
-      ]
+	      "**/*/package.json",
+        "**/*.json",
+        "**/*/.eslintrc.js",
+        "**/*.git*"
+      ],
+      "registry": "private-npm-registry-here"
     },
     "version": {
       "conventionalCommits": true
