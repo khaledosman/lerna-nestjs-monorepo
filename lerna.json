@@ -1,0 +1,27 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish",
+      "ignoreChanges": [
+        "**/__tests__/**",
+        "**/*.md",
+	"**/*/package.json
+      ]
+    },
+    "version": {
+      "conventionalCommits": true
+    },
+    "bootstrap": {
+      "scope": [
+        "@myscope/*"
+      ]
+    }
+  }
+}

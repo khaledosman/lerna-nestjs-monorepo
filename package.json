@@ -1,0 +1,60 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "nodemon",
+    "watch": "yarn bootstrap && lerna run watch --parallel",
+    "build": "yarn bootstrap && yarn tsc",
+    "tsc": "lerna run tsc --parallel",
+    "bootstrap": "lerna bootstrap",
+    "clean": "rm -rf lib/ packages/**/lib/** && lerna clean",
+    "publish": "yarn tsc && lerna publish",
+    "commit": "npx git-cz",
+    "release": "yarn publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx standardx packages/**/*.ts src/**/*.ts --fix",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  },
+  "standard": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/node": "^14.11.5",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "husky": "^4.3.0",
+    "lerna": "^3.22.1",
+    "nodemon": "^2.0.4",
+    "standardx": "^5.0.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {}
+}
