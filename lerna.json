@@ -1,7 +1,6 @@
 {
   "packages": [
-    "packages/*",
-    "nest-project"
+    "packages/*"
   ],
   "npmClient": "npm",
   "useWorkspaces": true,
