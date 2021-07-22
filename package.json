@@ -10,6 +10,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "rm -rf lib/ packages/**/lib/** && lerna clean",
     "publish": "yarn build && lerna publish",
+    "lint": "lerna run lint --parallel",
     "lint:fix": "lerna run lint --parallel -- --fix",
     "version": "yarn build && lerna version",
     "commit": "npx git-cz",
@@ -21,18 +22,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "standardx": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint/eslint-plugin"
-    ]
-  },
-  "standard": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint/eslint-plugin"
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
@@ -42,7 +31,6 @@
     "husky": "^4.3.0",
     "lerna": "^4.0.0",
     "nodemon": "^2.0.12",
-    "standardx": "^7.0.0",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },

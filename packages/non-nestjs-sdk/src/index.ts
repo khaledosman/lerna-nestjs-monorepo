@@ -1,2 +1,2 @@
 
-export const four = 20 * 2
+export const authenticate = Promise.resolve()
