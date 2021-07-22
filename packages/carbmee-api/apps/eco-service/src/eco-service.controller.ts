@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { EcoServiceService } from './eco-service.service';
-import { MessagePattern } from '@nestjs/microservices';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 @Controller()
 export class EcoServiceController {
   constructor(private readonly ecoServiceService: EcoServiceService) {}
@@ -9,7 +9,7 @@ export class EcoServiceController {
   @MessagePattern({
     cmd: 'hello',
   })
-  getHello(): string {
-    return this.ecoServiceService.getHello();
+  getHello(@Payload() payload): string {
+    return this.ecoServiceService.getHello(payload);
   }
 }

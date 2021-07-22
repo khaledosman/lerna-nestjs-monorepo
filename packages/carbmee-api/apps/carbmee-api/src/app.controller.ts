@@ -1,8 +1,8 @@
 import { Controller, Get, Inject } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { AppService } from './app.service';
-
+import { authenticate } from '@carbmee/non-nestjs-sdk';
 @Controller()
 export class AppController {
   constructor(
@@ -11,10 +11,13 @@ export class AppController {
   ) {}
 
   @Get()
-  getHello(): Observable<string> {
+  async getHello(): Promise<string> {
     const pattern = { cmd: 'hello' };
     const payload = [1, 2, 3];
-    return this.client.send<string>(pattern, payload);
+    const authenticationResult = await authenticate();
+    return firstValueFrom(
+      this.client.send<string>(pattern, [...payload, authenticationResult]),
+    );
     // return this.appService.getHello();
   }
 }
