@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { ServiceBModule } from './../src/ServiceB.module';
+import { EcoServiceModule } from './../src/EcoService.module';
 
-describe('ServiceBController (e2e)', () => {
+describe('EcoServiceController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [ServiceBModule],
+      imports: [EcoServiceModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();

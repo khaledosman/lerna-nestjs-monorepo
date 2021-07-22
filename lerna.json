@@ -26,7 +26,7 @@
     },
     "bootstrap": {
       "scope": [
-        "@myscope/*"
+        "@carbmee/*"
       ]
     }
   }

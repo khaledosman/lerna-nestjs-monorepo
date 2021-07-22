@@ -1,0 +1,30 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/carbmee-api/src",
+  "monorepo": true,
+  "root": "apps/carbmee-api",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/carbmee-api/tsconfig.app.json"
+  },
+  "projects": {
+    "carbmee-api": {
+      "type": "application",
+      "root": "apps/carbmee-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/carbmee-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/carbmee-api/tsconfig.app.json"
+      }
+    },
+    "eco-service": {
+      "type": "application",
+      "root": "apps/eco-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/eco-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/eco-service/tsconfig.app.json"
+      }
+    }
+  }
+}
